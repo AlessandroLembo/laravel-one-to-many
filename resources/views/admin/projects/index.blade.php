@@ -14,6 +14,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Type</th>
                     <th scope="col">Poject for</th>
                     <th scope="col">Platform</th>
                     <th></th>
@@ -24,6 +25,7 @@
                     <tr>
                         <th scope="row">{{ $project->id }}</th>
                         <td>{{ $project->name }}</td>
+                        <td>{{ $project->type?->label }}</td>
                         <td>{{ $project->project_for }}</td>
                         <td>{{ $project->web_platform }}</td>
                         <td class="d-flex justify-content-end align-items-center">

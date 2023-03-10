@@ -12,6 +12,6 @@ class Type extends Model
     // Assegno la relazione con i projects
     public function projects()
     {
-        return $this->hasMany(Projects::class);
+        return $this->hasMany(Project::class);
     }
 }
