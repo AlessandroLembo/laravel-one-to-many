@@ -23,7 +23,6 @@ class ProjectSeeder extends Seeder
             // $project->name = $project['name'];
             // $project->description = $project['description'];
             // $project->image = $project['image'];
-            // $project->slug = $project['slug'];
             // $project->project_for = $project['project_for'];
             // $project->web_platform = $project['web_platform'];
             // $project->duration_project = $project['duration_project'];
