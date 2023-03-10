@@ -40,6 +40,7 @@ class ProjectController extends Controller
         $request->validate([
             'name' => 'required|string|unique:projects',
             'description' => 'nullable|string',
+            'type_id' => 'nullable|exists:types,id',
             'image' => 'nullable|image', // validazione che controlla che sia un'immagine, posso anche speficare le estensioni
             'project_for' => 'string',
             'web_platform' => 'nullable|string',
@@ -48,6 +49,7 @@ class ProjectController extends Controller
             'name.required' => 'Il nome del progetto è obbligatorio',
             'name.unique' => "Esiste già un progetto con il nome $request->name",
             'image.image' => 'Il file caricato deve essere di tipo immagine',
+            'type_id' => 'Type npn valido'
 
         ]);
 
@@ -103,6 +105,7 @@ class ProjectController extends Controller
             // Il metodo ignore sui campi unique non ostacola l'aggiornamento dello stesso progetto
             'name' => ['required', 'string', Rule::unique('projects')->ignore($project->id)],
             'description' => 'nullable|string',
+            'type_id' => 'nullable|exists:types,id',
             'image' => 'nullable|image', // validazione che controlla che sia un'immagine, posso anche speficare le estensioni
             'project_for' => 'string',
             'web_platform' => 'nullable|string',
@@ -111,6 +114,7 @@ class ProjectController extends Controller
             'name.required' => 'Il nome del progetto è obbligatorio',
             'name.unique' => "Esiste già un progetto con il nome $request->name",
             'image.image' => 'Il file caricato deve essere di tipo immagine',
+            'type_id' => 'Type npn valido'
 
         ]);
 

@@ -2,7 +2,7 @@
 
 return [
     [
-        "label" => "FronEnd",
+        "label" => "FrontEnd",
         "color" => "#66b5ff",
     ],
     [
