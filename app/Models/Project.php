@@ -10,4 +10,10 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'image', 'description', 'web_platform', 'project_for', 'duration_project'];
+
+    // Assegno la relazione con i types
+    public function type()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
