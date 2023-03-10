@@ -18,10 +18,10 @@ class TypeSeeder extends Seeder
         foreach ($types as $type) {
             $new_type = new Type();
 
-            // $type->label = $type['label'];
-            // $type->color = $type['color'];
+            $new_type->label = $type['label'];
+            $new_type->color = $type['color'];
 
-            $new_type->fill($type);
+            // $new_type->fill($type);
             $new_type->save();
         }
     }
