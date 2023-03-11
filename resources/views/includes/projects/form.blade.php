@@ -38,7 +38,7 @@
     <div class="col-md-2">
         <label for="type_id" class="form-label">Type</label>
         <select class="form-select" name="type_id" id="type_id">
-            <option value="">Nothing selcted</option>
+            <option value="">Nothing selected</option>
             @foreach ($types as $type)
                 <option @if (old('type_id', $project->type_id) == $type->id) selected @endif value="{{ $type->id }}">
                     {{ $type->label }}</option>
