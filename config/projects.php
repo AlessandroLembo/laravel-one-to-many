@@ -7,6 +7,7 @@ return [
         "image" => "https://www.chaznex.com/assets/images/portfolio/boolflix/preview.jpg",
         "project_for" => "Boolean",
         "web_platform" => "Github, GitLab",
+        "is_published" => 0,
         "duration_project" => "2 days",
     ],
     [
@@ -15,6 +16,7 @@ return [
         "image" => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFgMOwC50D60RF1qEvtgpRjOHwD2fQDMS3Sw&usqp=CAU",
         "project_for" => "Boolean",
         "web_platform" => "Github, BitBucket",
+        "is_published" => 1,
         "duration_project" => "3 days",
     ],
     [
@@ -23,6 +25,7 @@ return [
         "image" => "https://blog.intercomassets.com/blog/wp-content/uploads/2023/01/Live-chat-support-2-1800x840.jpg.optimal.jpg",
         "project_for" => "Boolean",
         "web_platform" => "Github, AWS CodeCommit",
+        "is_published" => 1,
         "duration_project" => "3 days",
     ],
 
