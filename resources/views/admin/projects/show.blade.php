@@ -19,6 +19,7 @@
                 <h2>{{ $project->slug }}</h2>
                 <p>{{ $project->description }}</p>
                 <p class="fs-4"><strong>Progetto per:</strong> {{ $project->project_for }}</p>
+                <p class="fs-4"><strong>Progetto per:</strong> {{ $project->type?->label }}</p>
                 <p class="fs-4"><strong>Stato:</strong> {{ $project->is_published ? 'Pubblicato' : 'Bozza' }}</p>
                 <p class="fs-4"><strong>Pubblicato su:</strong> {{ $project->web_platform }}</p>
                 <p class="fs-4"><strong>Durata del progetto:</strong> {{ $project->duration_project }}</p>
