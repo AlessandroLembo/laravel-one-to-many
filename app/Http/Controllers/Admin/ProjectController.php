@@ -16,7 +16,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderby('id')->get();
+        $projects = Project::orderby('updated_at', 'DESC')->simplePaginate(3); // con questo metodo mi arrivano in pagina i link Next e Prev
 
         return view('admin.projects.index', compact('projects'));
     }

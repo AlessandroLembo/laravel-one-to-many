@@ -52,5 +52,10 @@
 
             </tbody>
         </table>
+        <hr>
+        <div class="d-flex justify-content-end">
+                {{-- Stampo il paginatore --}}
+                {{ $projects->links() }}
+        </div>
     </header>
 @endsection
