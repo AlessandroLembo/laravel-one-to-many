@@ -17,6 +17,7 @@
                     <th scope="col">Type</th>
                     <th scope="col">Poject for</th>
                     <th scope="col">Platform</th>
+                    <th scope="col">Stato</th>
                     <th></th>
                 </tr>
             </thead>
@@ -28,6 +29,7 @@
                         <td>{{ $project->type?->label }}</td>
                         <td>{{ $project->project_for }}</td>
                         <td>{{ $project->web_platform }}</td>
+                        <td>{{ $project->is_published ? 'Pubblicato' : 'Bozza' }}</td>
                         <td class="d-flex justify-content-end align-items-center">
                             <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-sm btn-primary"><i
                                     class="fa-solid fa-eye"></i></a>
