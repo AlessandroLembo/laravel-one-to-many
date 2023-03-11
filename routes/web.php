@@ -38,7 +38,8 @@ Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () 
     // Route::put('/projects{project}', [ProjectController::class, 'update'])->name('projects.update');
     // Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
 
-
+    // Rotta del Toggle
+    Route::patch('/projects/{project}/toggle', [ProjectController::class, 'toggle'])->name('projects.toggle');
 });
 
 Route::middleware('auth')->prefix('/profile')->name('profile.')->group(function () {

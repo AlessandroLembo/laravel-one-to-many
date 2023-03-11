@@ -17,7 +17,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::orderby('updated_at', 'DESC')->simplePaginate(3); // con questo metodo mi arrivano in pagina i link Next e Prev
+        $projects = Project::orderby('id')->simplePaginate(3); // con questo metodo mi arrivano in pagina i link Next e Prev
 
         return view('admin.projects.index', compact('projects'));
     }
@@ -162,5 +162,18 @@ class ProjectController extends Controller
 
         // Faccio il redirect alla pagina index e stampo il messaggio di conferma eliinazione
         return to_route('admin.projects.index')->with('type', 'danger')->with('message', "Il progetto '$project->name' è stato cancellato con successo");
+    }
+
+    public function toggle(Project $project)
+    {
+        $project->is_published = !$project->is_published;
+
+        $action = $project->is_published ? 'publlicato' : 'salvato in bozza';
+        $type = $project->is_published ? 'success' : 'info';
+
+        $project->save();
+
+        // Ritorno alla pagina precedente
+        return redirect()->back()->with('type', $type)->with('message', "Il progetto è stato $action con sucesso");
     }
 }

@@ -29,7 +29,15 @@
                         <td>{{ $project->type?->label }}</td>
                         <td>{{ $project->project_for }}</td>
                         <td>{{ $project->web_platform }}</td>
-                        <td>{{ $project->is_published ? 'Pubblicato' : 'Bozza' }}</td>
+                        <td>
+                            <form action="{{ route('admin.projects.toggle', $project->id) }}" method="POST">
+                                @method('PATCH')
+                                @csrf
+                                <button type="submit" class="btn btn-outline">
+                                    <i class="fas fa-toggle-{{ $project->is_published ? 'on' : 'off' }} {{ $project->is_published ? 'text-success' : 'text-danger' }}"></i>
+                                </button>
+                            </form>
+                        </td>
                         <td class="d-flex justify-content-end align-items-center">
                             <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-sm btn-primary"><i
                                     class="fa-solid fa-eye"></i></a>
