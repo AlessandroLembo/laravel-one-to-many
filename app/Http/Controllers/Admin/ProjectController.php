@@ -7,6 +7,7 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Arr;
 use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
@@ -73,6 +74,9 @@ class ProjectController extends Controller
         // quindi devo prima salvare il file nello storage e ottenere la stringa (link allo storage) da poter salvare nel database
         $new_project->fill($data);
 
+        // Se non ho checkato il checkbox nell'array data non c'è la chiave is_published (c'e solo se è checkata) 
+        $new_project->is_published = Arr::exists($data, 'is_published'); // quindi devo controllare se esiste la chiave "is_published" 
+
         $new_project->save();
 
         return to_route('admin.projects.show', $new_project->id)->with('type', 'success')->with('Creazione progetto andata a buon fine');
@@ -137,6 +141,9 @@ class ProjectController extends Controller
         // update fa i metodi fill() e save() insieme
         // $project->update($data);
         $project->fill($data);
+
+        $project->is_published = Arr::exists($data, 'is_published');
+
         $project->save();
 
         return to_route('admin.projects.show', $project->id)->with('type', 'success')->with('message', "Modifiche al progetto '$project->name' apportate con successo");

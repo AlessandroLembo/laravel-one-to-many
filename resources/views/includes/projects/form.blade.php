@@ -56,7 +56,7 @@
     <textarea class="form-control" id="web_platform" rows="3" name="web_platform">{{ old('web_platform', $project->web_platform) }}</textarea>
 </div>
 
-<div class="row">
+<div class="row justify-content-end">
     <div class="col-md-6">
         <label for="project_for" class="form-label">Project_for</label>
         <input type="text" class="form-control" id="project_for" name="project_for"
@@ -69,10 +69,25 @@
     </div>
 </div>
 
+<div class="row mt-3">
+    <div class="col-12 d-flex justify-content-end">
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="is_published" name="is_published" @if(old('is_published', $project->is_published)) checked @endif>
+            <label class="form-check-label" for="is_published">Pubblicato</label>
+        </div>
+    </div>
+</div>
+    
+
 <div class="d-flex justify-content-end">
     <a href="{{ route('admin.projects.index') }}" class="btn btn-secondary me-2 px-4 py-2">Back</a>
     <button type="submit" class="btn btn-success px-4 py-2">Salva</button>
+
 </div>
+
+
+
+
 
 </form>
 
