@@ -15,9 +15,20 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::orderby('id')->simplePaginate(3); // con questo metodo mi arrivano in pagina i link Next e Prev
+        // Raccologo in filter ciò che mi arriva in request dall'invio del form della select
+        $filter = $request->query('filter');
+
+        $query = Project::orderby('id');
+
+        // Aggiungo il filtro prima di impaginare
+        if ($filter) {
+            $value = $filter === 'drafts' ? 0 : 1;
+            $query->where('is_published', $value);
+        }
+
+        $projects = $query->simplePaginate(3); // con questo metodo mi arrivano in pagina i link Next e Prev
 
         return view('admin.projects.index', compact('projects'));
     }

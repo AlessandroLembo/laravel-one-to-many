@@ -8,6 +8,19 @@
             <h1 class="text-center my-5 fs-1">Projects</h1>
             <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Aggiungi Progetto</a>
         </div>
+        <div class="input-group my-4">
+            <form action="{{ route('admin.projects.index') }}" method="GET">
+                <div class="input-group">
+                    <button class="btn btn-outline-secondary" type="submit">Filtra</button>
+                    <select class="form-select" name="filter">
+                      <option selected value="">Tutte</option>
+                      <option value="published">Pubblicati</option>
+                      <option value="drafts">Bozze</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+       
 
         <table class="table">
             <thead>
