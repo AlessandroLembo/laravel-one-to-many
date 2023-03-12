@@ -47,24 +47,27 @@
                                 @method('PATCH')
                                 @csrf
                                 <button type="submit" class="btn btn-outline">
-                                    <i class="fas fa-toggle-{{ $project->is_published ? 'on' : 'off' }} {{ $project->is_published ? 'text-success' : 'text-danger' }}"></i>
+                                    <i class="fa-2x fas fa-toggle-{{ $project->is_published ? 'on' : 'off' }} {{ $project->is_published ? 'text-success' : 'text-danger' }}"></i>
                                 </button>
                             </form>
                         </td>
-                        <td class="d-flex justify-content-end align-items-center">
-                            <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-sm btn-primary"><i
+                        <td>
+                            <div class="d-flex justify-content-end align-items-center">
+                                <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-sm btn-primary"><i
                                     class="fa-solid fa-eye"></i></a>
 
-                            <a class="btn btn-sm btn-warning ms-2" href="{{ route('admin.projects.edit', $project->id) }}">
-                                <i class="fa-solid fa-pen-to-square"></i></a>
-
-                            <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST"
-                                class="delete-form" data-entity="progetto">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger ms-2"><i
-                                        class="fa-solid fa-trash"></i></button>
-                            </form>
+                                <a class="btn btn-sm btn-warning ms-2" href="{{ route('admin.projects.edit', $project->id) }}">
+                                    <i class="fa-solid fa-pen-to-square"></i></a>
+    
+                                <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST"
+                                    class="delete-form" data-entity="progetto">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger ms-2"><i
+                                            class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+                          
                         </td>
                     </tr>
                 @empty
